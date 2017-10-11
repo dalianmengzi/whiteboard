@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D06689B1F8C642700AF66C2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D06689A1F8C642700AF66C2 /* iconfont.ttf */; };
+		3D2171B11F8643A300A67A2D /* LCDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2171AF1F8643A300A67A2D /* LCDrawView.swift */; };
+		3D2171B31F86440000A67A2D /* 课程总结反馈.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */; };
+		3D2171B61F86494000A67A2D /* extension-UIimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2171B51F86494000A67A2D /* extension-UIimage.swift */; };
 		3DDADDC01F84912000AEFCFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDADDBF1F84912000AEFCFA /* AppDelegate.swift */; };
 		3DDADDC21F84912000AEFCFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDADDC11F84912000AEFCFA /* ViewController.swift */; };
 		3DDADDC51F84912000AEFCFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDADDC31F84912000AEFCFA /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D06689A1F8C642700AF66C2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		3D2171AF1F8643A300A67A2D /* LCDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCDrawView.swift; sourceTree = "<group>"; };
+		3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "课程总结反馈.jpg"; sourceTree = "<group>"; };
+		3D2171B51F86494000A67A2D /* extension-UIimage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extension-UIimage.swift"; sourceTree = "<group>"; };
 		3DDADDBC1F84912000AEFCFA /* whiteboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whiteboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDADDBF1F84912000AEFCFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DDADDC11F84912000AEFCFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D2171B41F86492400A67A2D /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				3D2171B51F86494000A67A2D /* extension-UIimage.swift */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
 		3DDADDB31F84912000AEFCFA = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +113,10 @@
 		3DDADDBE1F84912000AEFCFA /* whiteboard */ = {
 			isa = PBXGroup;
 			children = (
+				3D06689A1F8C642700AF66C2 /* iconfont.ttf */,
+				3D2171B41F86492400A67A2D /* extension */,
+				3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */,
+				3D2171AF1F8643A300A67A2D /* LCDrawView.swift */,
 				3DDADDBF1F84912000AEFCFA /* AppDelegate.swift */,
 				3DDADDC11F84912000AEFCFA /* ViewController.swift */,
 				3DDADDC31F84912000AEFCFA /* Main.storyboard */,
@@ -193,6 +213,7 @@
 				TargetAttributes = {
 					3DDADDBB1F84912000AEFCFA = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5NH89M4VFM;
 						ProvisioningStyle = Automatic;
 					};
 					3DDADDCF1F84912000AEFCFA = {
@@ -233,7 +254,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDADDCA1F84912000AEFCFA /* LaunchScreen.storyboard in Resources */,
+				3D2171B31F86440000A67A2D /* 课程总结反馈.jpg in Resources */,
 				3DDADDC71F84912000AEFCFA /* Assets.xcassets in Resources */,
+				3D06689B1F8C642700AF66C2 /* iconfont.ttf in Resources */,
 				3DDADDC51F84912000AEFCFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2171B11F8643A300A67A2D /* LCDrawView.swift in Sources */,
+				3D2171B61F86494000A67A2D /* extension-UIimage.swift in Sources */,
 				3DDADDC21F84912000AEFCFA /* ViewController.swift in Sources */,
 				3DDADDC01F84912000AEFCFA /* AppDelegate.swift in Sources */,
 			);
@@ -414,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NH89M4VFM;
 				INFOPLIST_FILE = whiteboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zqyou.whiteboard;
@@ -426,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NH89M4VFM;
 				INFOPLIST_FILE = whiteboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zqyou.whiteboard;
@@ -507,6 +534,7 @@
 				3DDADDE61F84912000AEFCFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DDADDE71F84912000AEFCFA /* Build configuration list for PBXNativeTarget "whiteboardTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +543,7 @@
 				3DDADDE91F84912000AEFCFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DDADDEA1F84912000AEFCFA /* Build configuration list for PBXNativeTarget "whiteboardUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +552,7 @@
 				3DDADDEC1F84912000AEFCFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
