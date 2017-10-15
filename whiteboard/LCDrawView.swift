@@ -146,8 +146,7 @@ class LCDrawView: UIView {
         layers.append(cancelLayers.last!)
         cancelLayers.removeLast()
     }
-    
-    }
+   
     //橡皮
     func rubber(){
         widthline = 8;
