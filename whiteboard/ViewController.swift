@@ -67,7 +67,16 @@ class ViewController: UIViewController {
         let previwe = selectPenViewController()
         //这里要把展示出的控制器设置为透明颜色
         previwe.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5);
-        
+        previwe.linecolor = drawView.preparativeColor;
+        previwe.linewidth = drawView.preparativeWidth;
+        previwe.setWidthandColorClosure = {
+            (width:Int,color:UIColor) in
+            self.drawView.widthline = width;
+            self.drawView.colorline = color;
+            self.drawView.preparativeColor = color;
+            self.drawView.preparativeWidth = width;
+
+        }
         self.present(previwe, animated:true, completion: nil)
         
     }

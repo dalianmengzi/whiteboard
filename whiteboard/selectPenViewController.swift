@@ -11,7 +11,10 @@ import UIKit
 class selectPenViewController: UIViewController {
 
     let width = UIScreen.main.bounds.width
-    
+    var linecolor = UIColor.white;
+    var linewidth = 0
+    var setWidthandColorClosure:((_ width:Int,_ color:UIColor) -> Void)?
+    let colors = [UIColor.red, UIColor.black,UIColor.yellow,UIColor.purple,UIColor.orange];
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .custom
@@ -27,8 +30,7 @@ class selectPenViewController: UIViewController {
     func setUI(){
         let setView = UIView.init(frame: CGRect.init(x: width - 150, y: 30, width: 150, height: 60));
         self.view.addSubview(setView);
-        let BtnW = 30 , colors = [UIColor.red, UIColor.black,UIColor.yellow,UIColor.purple,UIColor.orange];
-        
+        let BtnW = 30 ;
         for i in 0 ..< colors.count {
             let button = UIButton()
             button.tag = i
@@ -43,7 +45,7 @@ class selectPenViewController: UIViewController {
             let button = UIButton()
             let penwidth = 8 + i * 2;
             button.tag = penwidth / 2
-            button.frame = CGRect(x:BtnW * i + 4, y: 30, width: penwidth , height: penwidth);
+            button.frame = CGRect(x:BtnW * i + 2, y: 30, width: penwidth , height: penwidth);
             button.layer.borderWidth = 0;
             button.layer.cornerRadius = CGFloat(penwidth / 2);
             button.addTarget(self, action: #selector(self.selectWidth(_:)), for: .touchUpInside)
@@ -53,14 +55,17 @@ class selectPenViewController: UIViewController {
        
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+         setWidthandColorClosure?(self.linewidth,self.linecolor)
         self.presentingViewController?.dismiss(animated: true, completion: nil);
         
     }
 
     func selectColor(_ button: UIButton) {
+        self.linecolor = colors[button.tag];
         
     }
     func selectWidth(_ button: UIButton) {
+        self.linewidth = button.tag;
         
     }
     /*
