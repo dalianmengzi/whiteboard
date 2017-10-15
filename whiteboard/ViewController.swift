@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         case 102:
             drawView.redo()
         case 103:
-            drawView.add()
+            add()
         case 104:
             drawView.rubber();
         case 105:
@@ -62,6 +62,13 @@ class ViewController: UIViewController {
         }
     }
 
+    //添加
+    func add(){
+        let previwe = addactivityViewController()
+        //这里要把展示出的控制器设置为透明颜色
+        previwe.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5);
+        self.present(previwe, animated:true, completion: nil)
+    }
     //设置颜色与字体大小
     func pen(){
         let previwe = selectPenViewController()

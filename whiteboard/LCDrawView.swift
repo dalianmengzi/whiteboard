@@ -107,8 +107,6 @@ class LCDrawView: UIView {
             cancel()
         case 102:
             redo()
-        case 103:
-            add()
         case 104:
             rubber();
         default:
@@ -148,8 +146,6 @@ class LCDrawView: UIView {
         layers.append(cancelLayers.last!)
         cancelLayers.removeLast()
     }
-    //添加
-    func add(){
     
     }
     //橡皮
