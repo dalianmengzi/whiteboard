@@ -1,7 +1,6 @@
 //
 //  selectPenViewController.swift
 //  whiteboard
-//
 //  Created by 尤增强 on 2017/10/13.
 //  Copyright © 2017年 zqyou. All rights reserved.
 //
@@ -31,27 +30,29 @@ class selectPenViewController: UIViewController {
         let setView = UIView.init(frame: CGRect.init(x: width - 150, y: 30, width: 150, height: 60));
         self.view.addSubview(setView);
         let BtnW = 30 ;
-        for i in 0 ..< colors.count {
-            let button = UIButton()
-            button.tag = i
-            button.frame = CGRect(x:BtnW * i, y: 2, width: 16, height: 16);
-            button.layer.borderWidth = 0;
-            button.layer.cornerRadius = 8;
-            button.addTarget(self, action: #selector(self.selectColor(_:)), for: .touchUpInside)
-            button.backgroundColor = colors[i]
-            setView.addSubview(button)
-        }
         for i in 0 ..< 5 {
             let button = UIButton()
             let penwidth = 8 + i * 2;
             button.tag = penwidth / 2
-            button.frame = CGRect(x:BtnW * i + 2, y: 30, width: penwidth , height: penwidth);
+            button.frame = CGRect(x:BtnW * i + 2, y: 20, width: penwidth , height: penwidth);
             button.layer.borderWidth = 0;
             button.layer.cornerRadius = CGFloat(penwidth / 2);
             button.addTarget(self, action: #selector(self.selectWidth(_:)), for: .touchUpInside)
             button.backgroundColor = UIColor.red;
             setView.addSubview(button)
         }
+        
+//        for i in 0 ..< colors.count {
+//            let button = UIButton()
+//            button.tag = i
+//            button.frame = CGRect(x:BtnW * i, y: 2, width: 16, height: 16);
+//            button.layer.borderWidth = 0;
+//            button.layer.cornerRadius = 8;
+//            button.addTarget(self, action: #selector(self.selectColor(_:)), for: .touchUpInside)
+//            button.backgroundColor = colors[i]
+//            setView.addSubview(button)
+//        }
+       
        
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
