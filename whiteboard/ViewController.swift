@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         for i in 0 ..< titles.count {
             let button = UIButton();
             button.tag = 100 + i;
-            button.titleLabel?.font = UIFont.init(name: "iconfont", size: 26);
+            button.titleLabel?.font = UIFont.init(name: "iconfont", size: 28);
             button.frame = CGRect(x:Int(self.view.bounds.width - 260 + CGFloat(BtnW * i)), y: 2, width: BtnW, height: 50);
             button.setTitle(titles[i], for: UIControlState());
             if(i == 5){
