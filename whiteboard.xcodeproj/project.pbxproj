@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3D06689B1F8C642700AF66C2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D06689A1F8C642700AF66C2 /* iconfont.ttf */; };
 		3D2171B11F8643A300A67A2D /* LCDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2171AF1F8643A300A67A2D /* LCDrawView.swift */; };
-		3D2171B31F86440000A67A2D /* 课程总结反馈.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */; };
 		3D2171B61F86494000A67A2D /* extension-UIimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2171B51F86494000A67A2D /* extension-UIimage.swift */; };
 		3D7FAD681F9089A9006380EA /* selectPenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FAD671F9089A9006380EA /* selectPenViewController.swift */; };
 		3DB95AA51F93A30B00F1235C /* addactivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB95AA41F93A30B00F1235C /* addactivityViewController.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		3D06689A1F8C642700AF66C2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		3D2171AF1F8643A300A67A2D /* LCDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCDrawView.swift; sourceTree = "<group>"; };
-		3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "课程总结反馈.jpg"; sourceTree = "<group>"; };
 		3D2171B51F86494000A67A2D /* extension-UIimage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extension-UIimage.swift"; sourceTree = "<group>"; };
 		3D7FAD671F9089A9006380EA /* selectPenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selectPenViewController.swift; sourceTree = "<group>"; };
 		3DB95AA41F93A30B00F1235C /* addactivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addactivityViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				3D06689A1F8C642700AF66C2 /* iconfont.ttf */,
 				3D2171B41F86492400A67A2D /* extension */,
-				3D2171B21F86440000A67A2D /* 课程总结反馈.jpg */,
 				3D2171AF1F8643A300A67A2D /* LCDrawView.swift */,
 				3DDADDBF1F84912000AEFCFA /* AppDelegate.swift */,
 				3DDADDC11F84912000AEFCFA /* ViewController.swift */,
@@ -260,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDADDCA1F84912000AEFCFA /* LaunchScreen.storyboard in Resources */,
-				3D2171B31F86440000A67A2D /* 课程总结反馈.jpg in Resources */,
 				3DDADDC71F84912000AEFCFA /* Assets.xcassets in Resources */,
 				3D06689B1F8C642700AF66C2 /* iconfont.ttf in Resources */,
 				3DDADDC51F84912000AEFCFA /* Main.storyboard in Resources */,

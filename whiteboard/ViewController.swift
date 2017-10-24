@@ -145,6 +145,12 @@ class ViewController: UIViewController {
         let previwe = addactivityViewController()
         //这里要把展示出的控制器设置为透明颜色
         previwe.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1);
+        previwe.setActivtyClosure = {
+            (tag:Int) in
+            if(tag == 0){
+                self.drawView.remove();
+            }
+        }
         self.present(previwe, animated:true, completion: nil)
     }
     //设置颜色与字体大小
