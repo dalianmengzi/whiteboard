@@ -17,6 +17,7 @@ class LCDrawView: UIView {
     var colorline = UIColor.red;
     var preparativeColor = UIColor.red;
     var preparativeWidth = 2;
+    var imgView = UIImageView();
     
     // MARK: - life cycle
     override init(frame: CGRect) {
@@ -24,10 +25,19 @@ class LCDrawView: UIView {
         layers = []
         cancelLayers = []
 //        initButtons(frame)
+          setViewUI(frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setViewUI(_ frame: CGRect){
+    
+        imgView = UIImageView.init(frame: CGRect.init(x: 0, y: 54, width: frame.width, height:  frame.height - 52));
+        imgView.contentMode = .scaleAspectFit
+        self.addSubview(imgView);
+    
     }
     
     // MARK: - private mothods

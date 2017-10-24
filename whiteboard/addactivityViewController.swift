@@ -8,9 +8,11 @@
 
 import UIKit
 
-class addactivityViewController: UIViewController {
+class addactivityViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     let width = UIScreen.main.bounds.width;
-    var setActivtyClosure:((_ tag:Int) -> Void)?
+    var selimg = UIImage();
+    var selectTag = 0;
+    var setActivtyClosure:((_ tag:Int,_ img:UIImage) -> Void)?
     override func viewDidLoad() {
        
         super.viewDidLoad()
@@ -53,15 +55,82 @@ class addactivityViewController: UIViewController {
     }
     func tap(_ button: UIButton) {
         let tag = button.tag;
-        setActivtyClosure?(tag)
+        if(tag == 0){
+            setActivtyClosure?(tag,selimg);
+            self.presentingViewController?.dismiss(animated: true, completion: nil);
+        }else if (tag == 1){
+            self.selectTag = tag;
+            funcChooseFromPhotoAlbum();
+        }else{
+            self.selectTag = tag;
+            funcChooseFromCamera();
+        }
+        
        
-        self.presentingViewController?.dismiss(animated: true, completion: nil);
+        
     }
     func cancel(_ button: UIButton) {
       self.presentingViewController?.dismiss(animated: true, completion: nil);
         
     }
-   
+    //从相册选择照片
+    func funcChooseFromPhotoAlbum() -> Void{
+        
+        let masterVC = HsuAlbumMasterTableViewController()
+        let navi = UINavigationController(rootViewController: masterVC)
+        masterVC.title = "图片"
+        let gridVC = HsuAssetGridViewController()
+        gridVC.title = "所有图片"
+        navi.pushViewController(gridVC, animated: false)
+        
+       
+        present(navi, animated: true)
+        
+        HandleSelectionPhotosManager.share.getSelectedPhotos(with: 1) { (assets, images) in
+            self.selimg = images[0]
+            self.setActivtyClosure?(self.selectTag,self.selimg);
+          self.presentingViewController?.dismiss(animated: true, completion: nil);
+        }
+        
+        
+    }
+    
+    func funcChooseFromCamera() -> Void{
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            
+            //设置代理
+            imagePicker.delegate = self
+            //允许编辑
+            imagePicker.isEditing = false;
+            //设置图片源
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            //模态弹出IamgePickerView
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        }else{
+            print("模拟器不支持拍照功能")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //获取照片的原图
+        let image = (info as NSDictionary).object(forKey: UIImagePickerControllerOriginalImage)as!UIImage
+        //获得编辑后的图片
+        //let image = (info as NSDictionary).object(forKey: UIImagePickerControllerEditedImage)as!UIImage
+        self.selimg = image;
+        self.setActivtyClosure?(self.selectTag,self.selimg);
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil);
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

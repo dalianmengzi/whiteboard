@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     let width = UIScreen.main.bounds.width;
+    let height = UIScreen.main.bounds.height;
     let colors = [0xfc0b1d,0xf5af42,0xfbe156,0x7ce471,0x5b207b,0x000000,0xb8b8ba,0xe6e6e6,0x2991f6,0x73defa];
     var drawView = LCDrawView();
     var penView = UIView();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          drawView = LCDrawView(frame: self.view.bounds)
@@ -24,27 +26,27 @@ class ViewController: UIViewController {
 
     func setUI(){
     
-        let stoolsView = UIView.init(frame: CGRect.init(x: 0, y: 0, width:width , height: 30));
+        let stoolsView = UIView.init(frame: CGRect.init(x: 0, y: 0, width:width , height: 50));
         stoolsView.backgroundColor = UIColor.gray;
         self.view.addSubview(stoolsView);
         
         let titles = ["\u{e636}","\u{e66f}","\u{e600}","\u{e81a}","\u{e608}","\u{e629}"]
-        let BtnW = 30
+        let BtnW = 40
         for i in 0 ..< titles.count {
-            let button = UIButton()
-            button.tag = 100 + i
-            button.titleLabel?.font = UIFont.init(name: "iconfont", size: 20);
-            button.frame = CGRect(x:Int(self.view.bounds.width - 180 + CGFloat(BtnW * i)), y: 2, width: BtnW, height: 30)
-            button.setTitle(titles[i], for: UIControlState())
+            let button = UIButton();
+            button.tag = 100 + i;
+            button.titleLabel?.font = UIFont.init(name: "iconfont", size: 26);
+            button.frame = CGRect(x:Int(self.view.bounds.width - 260 + CGFloat(BtnW * i)), y: 2, width: BtnW, height: 50);
+            button.setTitle(titles[i], for: UIControlState());
             if(i == 5){
-                 button.setTitleColor(UIColor.red, for: UIControlState())
+                button.setTitleColor(UIColor.red, for: UIControlState());
             }else{
-                 button.setTitleColor(UIColor.white, for: UIControlState())
+                button.setTitleColor(UIColor.white, for: UIControlState());
             }
            
-            button.setTitleColor(UIColor.lightGray, for: .highlighted)
-            button.addTarget(self, action: #selector(self.click(_:)), for: .touchUpInside)
-            stoolsView.addSubview(button)
+            button.setTitleColor(UIColor.lightGray, for: .highlighted);
+            button.addTarget(self, action: #selector(self.click(_:)), for: .touchUpInside);
+            stoolsView.addSubview(button);
         }
         
         setPenUI()
@@ -100,6 +102,8 @@ class ViewController: UIViewController {
             
         }
         penView.isHidden = true;
+    
+    
    }
     func click(_ button: UIButton) {
         let tag = button.tag;
@@ -144,13 +148,22 @@ class ViewController: UIViewController {
     func add(){
         let previwe = addactivityViewController()
         //这里要把展示出的控制器设置为透明颜色
-        previwe.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1);
+        previwe.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8);
+        
         previwe.setActivtyClosure = {
-            (tag:Int) in
+            (tag:Int,img:UIImage) in
             if(tag == 0){
-                self.drawView.remove();
+                 self.drawView.remove();
+                self.drawView.imgView.image = nil;
+                 self.drawView.backgroundColor = UIColor.white;
+            }else{
+                 self.drawView.remove();
+                self.drawView.imgView.image = img;
+                self.drawView.backgroundColor = UIColor.black;
+                
             }
         }
+       
         self.present(previwe, animated:true, completion: nil)
     }
     //设置颜色与字体大小
