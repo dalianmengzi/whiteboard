@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     let colors = [0xfc0b1d,0xf5af42,0xfbe156,0x7ce471,0x5b207b,0x000000,0xb8b8ba,0xe6e6e6,0x2991f6,0x73defa];
     var drawView = LCDrawView();
     var penView = UIView();
-    
+    var rotateindex = 0;
+    var imgR = UIImage();
     override func viewDidLoad() {
         super.viewDidLoad()
          drawView = LCDrawView(frame: self.view.bounds)
@@ -30,15 +31,15 @@ class ViewController: UIViewController {
         stoolsView.backgroundColor = UIColor.gray;
         self.view.addSubview(stoolsView);
         
-        let titles = ["\u{e636}","\u{e66f}","\u{e600}","\u{e81a}","\u{e608}","\u{e629}"]
+        let titles = ["\u{e677}","\u{e622}","\u{e61c}","\u{e600}","\u{e81a}","\u{e608}","\u{e629}"]
         let BtnW = 40
         for i in 0 ..< titles.count {
             let button = UIButton();
             button.tag = 100 + i;
             button.titleLabel?.font = UIFont.init(name: "iconfont", size: 28);
-            button.frame = CGRect(x:Int(self.view.bounds.width - 260 + CGFloat(BtnW * i)), y: 2, width: BtnW, height: 50);
+            button.frame = CGRect(x:Int(self.view.bounds.width - 280 + CGFloat(BtnW * i)), y: 2, width: BtnW, height: 50);
             button.setTitle(titles[i], for: UIControlState());
-            if(i == 5){
+            if(i == 6){
                 button.setTitleColor(UIColor.red, for: UIControlState());
             }else{
                 button.setTitleColor(UIColor.white, for: UIControlState());
@@ -113,14 +114,16 @@ class ViewController: UIViewController {
         case 100:
             drawView.remove()
         case 101:
-           drawView.cancel()
+           rotate();
         case 102:
-            drawView.redo()
+           drawView.cancel()
         case 103:
-            add()
+            drawView.redo()
         case 104:
-            drawView.rubber();
+            add()
         case 105:
+            drawView.rubber();
+        case 106:
             pen();
         default:
             break
@@ -159,6 +162,7 @@ class ViewController: UIViewController {
             }else{
                  self.drawView.remove();
                 self.drawView.imgView.image = img;
+                self.imgR  = img;
                 self.drawView.backgroundColor = UIColor.black;
                 
             }
@@ -187,6 +191,18 @@ class ViewController: UIViewController {
         penView.isHidden = !isHidden;
       
         
+    }
+    
+    func rotate(){
+       let flipImageOrientation = [7,5,6,0]
+        
+        let flipImage = UIImage.init(cgImage: imgR.cgImage!, scale: imgR.scale, orientation: UIImageOrientation(rawValue: flipImageOrientation[rotateindex % 4])!);
+         rotateindex = rotateindex + 1 ;
+         self.imgR = flipImage;
+        //图片显示
+        self.drawView.imgView.image = flipImage;
+       
+    
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
